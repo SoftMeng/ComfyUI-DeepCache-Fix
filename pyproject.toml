@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-deepcache-fix"
+description = "Accelerate ComfyUI Nodes for Faster Image Generation, Ensuring Consistency Pre and Post-Acceleration, Ideal for Bulk Image Production."
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/SoftMeng/ComfyUI-DeepCache-Fix"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-DeepCache-Fix"
+Icon = ""
