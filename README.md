@@ -15,7 +15,7 @@
 
 ## 介绍
 
-ComfyUI加速节点，生成图片时更快，同时保证了加速前后的一致性，适合大批量生图。[Accelerate ComfyUI Nodes for Faster Image Generation, Ensuring Consistency Pre and Post-Acceleration, Ideal for Bulk Image Production.]
+For SDXL,ComfyUI加速节点，生成图片时更快，同时保证了加速前后的一致性，适合大批量生图。[Accelerate ComfyUI Nodes for Faster Image Generation, Ensuring Consistency Pre and Post-Acceleration, Ideal for Bulk Image Production.]
 
 ## 用法
 
