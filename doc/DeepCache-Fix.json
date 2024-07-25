@@ -1,0 +1,879 @@
+{
+  "last_node_id": 112,
+  "last_link_id": 306,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1979.6826171875,
+        130
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 175,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 230,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            279
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 44,
+      "type": "EmptyLatentImage",
+      "pos": [
+        649.6826171875,
+        130
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 293,
+          "widget": {
+            "name": "width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 294,
+          "widget": {
+            "name": "height"
+          },
+          "label": "高度"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            174
+          ],
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 92,
+      "type": "Image Save",
+      "pos": [
+        2289.6826171875,
+        130
+      ],
+      "size": {
+        "0": 403.4533996582031,
+        "1": 1203.6630859375
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 279
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Save"
+      },
+      "widgets_values": [
+        "[time(%Y-%m-%d)]",
+        "ComfyUI",
+        "_",
+        4,
+        "false",
+        "jpg",
+        72,
+        95,
+        "true",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "id": 106,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        649.6826171875,
+        578
+      ],
+      "size": {
+        "0": 400,
+        "1": 269.9999694824219
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 250,
+          "label": "CLIP"
+        },
+        {
+          "name": "target_width",
+          "type": "INT",
+          "link": 280,
+          "widget": {
+            "name": "target_width"
+          },
+          "label": "目标宽度"
+        },
+        {
+          "name": "target_height",
+          "type": "INT",
+          "link": 281,
+          "widget": {
+            "name": "target_height"
+          },
+          "label": "目标高度"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 286,
+          "widget": {
+            "name": "width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 287,
+          "widget": {
+            "name": "height"
+          },
+          "label": "高度"
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 288,
+          "widget": {
+            "name": "text_g"
+          },
+          "label": "G文本"
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 289,
+          "widget": {
+            "name": "text_l"
+          },
+          "label": "L文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            296
+          ],
+          "shape": 3,
+          "label": "条件",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 104,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        649.6826171875,
+        977.9999694824219
+      ],
+      "size": {
+        "0": 400,
+        "1": 269.9999694824219
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 251,
+          "label": "CLIP"
+        },
+        {
+          "name": "target_width",
+          "type": "INT",
+          "link": 282,
+          "widget": {
+            "name": "target_width"
+          },
+          "label": "目标宽度"
+        },
+        {
+          "name": "target_height",
+          "type": "INT",
+          "link": 283,
+          "widget": {
+            "name": "target_height"
+          },
+          "label": "目标高度"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 284,
+          "widget": {
+            "name": "width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 285,
+          "widget": {
+            "name": "height"
+          },
+          "label": "高度"
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 297,
+          "widget": {
+            "name": "text_g"
+          },
+          "label": "G文本"
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 298,
+          "widget": {
+            "name": "text_l"
+          },
+          "label": "L文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            295
+          ],
+          "shape": 3,
+          "label": "条件",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 110,
+      "type": "MexxSDXLPromptStyler",
+      "pos": [
+        100,
+        130
+      ],
+      "size": {
+        "0": 449.6826171875,
+        "1": 793.7354125976562
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "links": [
+            288,
+            289
+          ],
+          "shape": 3,
+          "label": "text_positive",
+          "slot_index": 0
+        },
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "links": [],
+          "shape": 3,
+          "label": "text_negative",
+          "slot_index": 1
+        },
+        {
+          "name": "original_text_positive",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "original_text_positive"
+        },
+        {
+          "name": "original_text_negative",
+          "type": "STRING",
+          "links": [
+            297,
+            298
+          ],
+          "shape": 3,
+          "label": "original_text_negative",
+          "slot_index": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            280,
+            282,
+            284,
+            286,
+            293
+          ],
+          "shape": 3,
+          "label": "width",
+          "slot_index": 4
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            281,
+            283,
+            285,
+            287,
+            294
+          ],
+          "shape": 3,
+          "label": "height",
+          "slot_index": 5
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MexxSDXLPromptStyler"
+      },
+      "widgets_values": [
+        "girl,",
+        "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username,blurry,artistname\n\n\n",
+        512,
+        1024,
+        "无",
+        "Yes"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        100,
+        1053.7354125976562
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            305
+          ],
+          "shape": 3,
+          "label": "模型",
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            250,
+            251
+          ],
+          "shape": 3,
+          "label": "CLIP",
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            230
+          ],
+          "shape": 3,
+          "label": "VAE",
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "CharacterArtXLV6.safetensors"
+      ]
+    },
+    {
+      "id": 112,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        649.6826171875,
+        366
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 305,
+          "label": "模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            306
+          ],
+          "shape": 3,
+          "label": "模型",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "Hyper/Hyper-SDXL-4steps-lora.safetensors",
+        0.7000000000000001
+      ]
+    },
+    {
+      "id": 108,
+      "type": "DeepCache_Fix",
+      "pos": [
+        1149.6826171875,
+        130
+      ],
+      "size": {
+        "0": 315,
+        "1": 202
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 306,
+          "label": "model"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            304
+          ],
+          "shape": 3,
+          "label": "MODEL",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DeepCache_Fix"
+      },
+      "widgets_values": [
+        2,
+        3,
+        0,
+        6,
+        "Yes",
+        "Yes",
+        "Yes"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        1564.6826171875,
+        130
+      ],
+      "size": {
+        "0": 315,
+        "1": 262
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 304,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 296,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 295,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 174,
+          "label": "Latent",
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            175
+          ],
+          "slot_index": 0,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        265441529420982,
+        "randomize",
+        10,
+        1,
+        "euler_ancestral",
+        "normal",
+        1
+      ]
+    }
+  ],
+  "links": [
+    [
+      174,
+      44,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      175,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      230,
+      58,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      250,
+      58,
+      1,
+      106,
+      0,
+      "CLIP"
+    ],
+    [
+      251,
+      58,
+      1,
+      104,
+      0,
+      "CLIP"
+    ],
+    [
+      279,
+      8,
+      0,
+      92,
+      0,
+      "IMAGE"
+    ],
+    [
+      280,
+      110,
+      4,
+      106,
+      1,
+      "INT"
+    ],
+    [
+      281,
+      110,
+      5,
+      106,
+      2,
+      "INT"
+    ],
+    [
+      282,
+      110,
+      4,
+      104,
+      1,
+      "INT"
+    ],
+    [
+      283,
+      110,
+      5,
+      104,
+      2,
+      "INT"
+    ],
+    [
+      284,
+      110,
+      4,
+      104,
+      3,
+      "INT"
+    ],
+    [
+      285,
+      110,
+      5,
+      104,
+      4,
+      "INT"
+    ],
+    [
+      286,
+      110,
+      4,
+      106,
+      3,
+      "INT"
+    ],
+    [
+      287,
+      110,
+      5,
+      106,
+      4,
+      "INT"
+    ],
+    [
+      288,
+      110,
+      0,
+      106,
+      5,
+      "STRING"
+    ],
+    [
+      289,
+      110,
+      0,
+      106,
+      6,
+      "STRING"
+    ],
+    [
+      293,
+      110,
+      4,
+      44,
+      0,
+      "INT"
+    ],
+    [
+      294,
+      110,
+      5,
+      44,
+      1,
+      "INT"
+    ],
+    [
+      295,
+      104,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      296,
+      106,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      297,
+      110,
+      3,
+      104,
+      5,
+      "STRING"
+    ],
+    [
+      298,
+      110,
+      3,
+      104,
+      6,
+      "STRING"
+    ],
+    [
+      304,
+      108,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      305,
+      58,
+      0,
+      112,
+      0,
+      "MODEL"
+    ],
+    [
+      306,
+      112,
+      0,
+      108,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "groupNodes": {},
+    "ds": {
+      "scale": 0.7627768444385479,
+      "offset": [
+        -338.05732108505117,
+        -133.4402185526674
+      ]
+    }
+  },
+  "version": 0.4
+}

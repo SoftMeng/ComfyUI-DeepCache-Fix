@@ -15,11 +15,15 @@
 
 ## 介绍
 
-For SDXL,ComfyUI加速节点，生成图片时更快，同时保证了加速前后的一致性，适合大批量生图。[Accelerate ComfyUI Nodes for Faster Image Generation, Ensuring Consistency Pre and Post-Acceleration, Ideal for Bulk Image Production.]
+For SDXL LCM,ComfyUI加速节点，生成图片时更快，同时保证了加速前后的一致性，适合大批量生图。[Accelerate ComfyUI Nodes for Faster Image Generation, Ensuring Consistency Pre and Post-Acceleration, Ideal for Bulk Image Production.]
 
 ## 用法
 
 将该库放在 ComfyUI/custom_nodes/ 下即可。[Simply place the library in the 'ComfyUI/custom_nodes/' directory to get started.]
+
+## 工作流例子
+
+[DeepCache-Fix.json](doc%2FDeepCache-Fix.json)
 
 ## 使用说明
 
@@ -43,7 +47,7 @@ https://www.liblib.art/modelinfo/386109978c19484298d810d6f2830780
 
 在总共16步的执行过程中，我们计划采取分阶段的策略。具体来说，如下
 
-1. 前12步(start_steps=0, end_steps=12)将利用特定的插件来执行，以提高效率和效果。
+1. 0-12步(start_steps=0, end_steps=12)将利用特定的插件来执行，以提高效率和效果。
 2. 从第13步开始，我们将切换回原始模型，完成剩下的4步。 (一般预留3步以上，不使用加速)
 
 这样的安排旨在结合两者的优势，确保整个流程的顺利进行。
