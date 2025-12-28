@@ -120,8 +120,8 @@ class DeepCache_Fix:
             context = c_crossattn
             xc = xc.to(dtype)
             # 将时间步转换为指定的数据类型。
-            t = new_model.model.model_sampling.timestep(t).float()
-            context = context.to(dtype)
+            t = new_model.model.model_sampling.timestep(t).float().to(xc.device)
+            context = context.to(dtype=dtype, device=xc.device)
 
             # 将所有额外的条件转换为指定的数据类型。
             extra_conds = {}
@@ -134,7 +134,7 @@ class DeepCache_Fix:
             # 初始化模型的输入和配置。
             x = xc
             timesteps = t
-            y = None if y is None else y.to(dtype)
+            y = None if y is None else y.to(device=x.device, dtype=dtype)
             transformer_options["original_shape"] = list(x.shape)
             transformer_options["current_index"] = 0
             transformer_patches = transformer_options.get("patches", {})
